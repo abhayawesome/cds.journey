@@ -1,339 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Defence Journey - Batches</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Rajdhani:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary-color: #FF671F; /* Saffron */
-            --secondary-color: #046A38; /* Green */
-            --text-dark: #2d3748;
-            --text-light: #64748b;
-            --bg-light: #f7f9fc;
-            --card-bg: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.08);
-        }
+      :root {
+        --primary-color: #ff671f; /* Saffron */
+        --secondary-color: #046a38; /* Green */
+        --text-dark: #2d3748;
+        --text-light: #64748b;
+        --bg-light: #f7f9fc;
+        --card-bg: #ffffff;
+        --shadow-color: rgba(0, 0, 0, 0.08);
+      }
 
-        /* General Body Styles */
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            scroll-behavior: smooth;
-        }
-        
-        /* Header */
-        .fixed-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(90deg, var(--primary-color), #FF8D4D);
-            color: white;
-            padding: 0 1rem;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(255, 103, 31, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center the title */
-            height: 65px;
-        }
+      /* General Body Styles */
+      body {
+        font-family: "Rajdhani", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        scroll-behavior: smooth;
+      }
 
-        .header-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: 'League Spartan', sans-serif;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-        }
+      /* Header */
+      .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, var(--primary-color), #ff8d4d);
+        color: white;
+        padding: 0 1rem;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(255, 103, 31, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the title */
+        height: 65px;
+      }
 
-        /* Main Content Wrapper */
-        .content-wrapper {
-            margin-top: 85px;
-            padding: 1rem 2rem;
-        }
+      .header-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: "League Spartan", sans-serif;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
 
-        /* Section Title Styles */
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-            font-family: 'League Spartan', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+      /* Main Content Wrapper */
+      .content-wrapper {
+        margin-top: 85px;
+        padding: 1rem 2rem;
+      }
 
-        /* Batch Card Container */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Center the cards */
-            gap: 30px; /* Modern way to space items */
-            max-width: 1400px;
-            margin: 0 auto; /* Center the container itself */
-        }
+      /* Section Title Styles */
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        color: var(--text-dark);
+        font-family: "League Spartan", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
 
-        .col-lg-2 {
-             flex: 1 1 300px; /* Allow cards to grow and shrink */
-             max-width: 320px;
-        }
-        
-        /* Modernized Batch Card */
-        .batch-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+      /* Batch Card Container */
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center the cards */
+        gap: 30px; /* Modern way to space items */
+        max-width: 1400px;
+        margin: 0 auto; /* Center the container itself */
+      }
 
-        .batch-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
-        
-        .batch-card .img-container {
-            overflow: hidden;
-        }
+      .col-lg-2 {
+        flex: 1 1 300px; /* Allow cards to grow and shrink */
+        max-width: 320px;
+      }
 
-        .batch-card .img-fluid {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-        
-        .batch-card:hover .img-fluid {
-            transform: scale(1.05);
-        }
+      /* Modernized Batch Card */
+      .batch-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px var(--shadow-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
 
-        .batch-info {
-            padding: 20px;
-            text-align: center;
-        }
+      .batch-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
 
-        .batch-name {
-            font-family: 'League Spartan', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0 0 8px 0;
-            color: var(--text-dark);
-            text-transform: uppercase;
-        }
+      .batch-card .img-container {
+        overflow: hidden;
+        height: 180px; /* Fixed height for image container */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .batch-id {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        
-        .batch-id b {
-            color: var(--secondary-color);
-            font-weight: 700;
-        }
+      .batch-card .img-fluid {
+        width: 100%;
+        height: 100%; /* Make image fill container */
+        object-fit: cover; /* Cover the area, cropping if necessary */
+        display: block;
+        transition: transform 0.4s ease;
+      }
 
-        /* SSB Apps Section */
+      .batch-card:hover .img-fluid {
+        transform: scale(1.05);
+      }
+
+      .batch-info {
+        padding: 20px;
+        text-align: center;
+        flex-grow: 1; /* Allow batch info to take remaining space */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .batch-name {
+        font-family: "League Spartan", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+        color: var(--text-dark);
+        text-transform: uppercase;
+      }
+
+      .batch-id {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .batch-id b {
+        color: var(--secondary-color);
+        font-weight: 700;
+      }
+
+      /* SSB Apps Section */
+      .ssb-apps-section {
+        padding: 4rem 2rem;
+        margin-top: 50px;
+        background-color: #fff; /* White background to stand out */
+      }
+
+      /* App Card Container */
+      .app-cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Modernized App Card */
+      .app-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px var(--shadow-color);
+        padding: 25px;
+        width: 280px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .app-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .app-card img {
+        width: 90px;
+        height: 90px;
+        border-radius: 22px; /* iOS-style squircle */
+        margin-bottom: 20px;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .app-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 15px;
+        font-family: "League Spartan", sans-serif;
+        text-transform: uppercase;
+        flex-grow: 1; /* Ensures buttons align */
+      }
+
+      .app-card .playstore-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background: var(--secondary-color);
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9em;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .app-card .playstore-link:hover {
+        background: #058245;
+        transform: scale(1.05);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .content-wrapper,
         .ssb-apps-section {
-            padding: 4rem 2rem;
-            margin-top: 50px;
-            background-color: #fff; /* White background to stand out */
+          padding: 1rem;
         }
-        
-        /* App Card Container */
-        .app-cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .section-title {
+          font-size: 2rem;
         }
-
-        /* Modernized App Card */
+        .col-lg-2 {
+          flex-basis: 100%; /* Full width on small screens */
+          max-width: 350px;
+        }
         .app-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-            padding: 25px;
-            width: 280px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          width: 100%;
+          max-width: 350px;
         }
+      }
 
-        .app-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
+      /* Popup overlay styles - This is kept in case you want to use it later, but it won't show automatically */
+      .popup-overlay {
+        display: none; /* Important: Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+        justify-content: center;
+        align-items: center;
+        z-index: 2000; /* Higher z-index than other elements */
+        backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
+      }
 
-        .app-card img {
-            width: 90px;
-            height: 90px;
-            border-radius: 22px; /* iOS-style squircle */
-            margin-bottom: 20px;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+      .popup-content {
+        background: var(--card-bg);
+        padding: 35px 30px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 450px;
+        width: 90%;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.4s ease-in-out;
+        border: 1px solid #eee;
+      }
 
-        .app-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-            font-family: 'League Spartan', sans-serif;
-            text-transform: uppercase;
-            flex-grow: 1; /* Ensures buttons align */
-        }
+      .popup-content h2 {
+        font-size: 1.6rem; /* Larger heading */
+        margin-bottom: 25px;
+        color: var(--text-dark);
+        font-weight: 700;
+        font-family: "League Spartan", sans-serif;
+      }
 
-        .app-card .playstore-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--secondary-color);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
+      .popup-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Spacing between buttons */
+        flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+      }
 
-        .app-card .playstore-link:hover {
-            background: #058245;
-            transform: scale(1.05);
+      .join-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: var(--primary-color); /* Use primary color for join */
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        font-size: 1.05rem;
+      }
+
+      .join-btn.developer {
+        background-color: #555; /* Different color for developer button */
+      }
+
+      .join-btn:hover {
+        background-color: #e65a15;
+        transform: translateY(-2px);
+      }
+
+      .join-btn.developer:hover {
+        background-color: #333;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        color: #aaa;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .close-btn:hover {
+        color: #666;
+      }
+
+      @keyframes fadeIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
         }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .content-wrapper, .ssb-apps-section {
-                padding: 1rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .col-lg-2 {
-                flex-basis: 100%; /* Full width on small screens */
-                max-width: 350px;
-            }
-            .app-card {
-                width: 100%;
-                max-width: 350px;
-            }
+        to {
+          transform: scale(1);
+          opacity: 1;
         }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="fixed-header">
-        <h1 class="header-title">Defence Journey</h1>
+      <h1 class="header-title">Defence Journey</h1>
     </header>
 
     <main class="content-wrapper">
-        <h2 class="section-title">Choose Your Batch</h2>
-        <div class="row">
-
-            <div class="col-lg-2">
-                <div class="batch-card" onclick="window.location.href='batch95dc.html?id=29'">
-                    <div class="img-container">
-                        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/banner-image/zulu_7bdQCsN.webp" alt="ZULU OTA BATCH" class="img-fluid">
-                    </div>
-                    <div class="batch-info">
-                        <h3 class="batch-name">ZULU OTA BATCH (CDS-2 2025)</h3>
-                        <p class="batch-id">Price: <b>FREE</b></p>
-                    </div>
-                </div>
+      <h2 class="section-title">Choose Your Batch</h2>
+      <div class="row">
+        <div class="col-lg-2">
+          <div
+            class="batch-card"
+            onclick="window.location.href='batch95dc.html?id=29'"
+          >
+            <div class="img-container">
+              <img
+                src="https://cds-journey-bucket.s3.amazonaws.com/media/banner-image/zulu_7bdQCsN.webp"
+                alt="ZULU OTA BATCH (CDS-2 2025)"
+                class="img-fluid"
+              />
             </div>
-
-            <div class="col-lg-2">
-                <div class="batch-card" onclick="window.location.href='batchdac1.html?id=32'">
-                     <div class="img-container">
-                        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/banner-image/xray_WZzTn5o.webp" alt="XRAY BATCH" class="img-fluid">
-                    </div>
-                    <div class="batch-info">
-                        <h3 class="batch-name">XRAY BATCH (NDA-2 2025)</h3>
-                        <p class="batch-id">Price: <b>FREE</b></p>
-                    </div>
-                </div>
+            <div class="batch-info">
+              <h3 class="batch-name">ZULU OTA BATCH (CDS-2 2025)</h3>
+              <p class="batch-id">Price: <b>FREE</b></p>
             </div>
-
-            <div class="col-lg-2">
-                <div class="batch-card" onclick="window.location.href='batch6fb5.html?id=31'">
-                     <div class="img-container">
-                        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/banner-image/yankee_fmjjbui.webp" alt="YANKEE BATCH" class="img-fluid">
-                    </div>
-                    <div class="batch-info">
-                        <h3 class="batch-name">YANKEE BATCH (AFCAT-2 2025)</h3>
-                        <p class="batch-id">Price: <b>FREE</b></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-2">
-                <div class="batch-card" onclick="window.location.href='batch8bcf.html?id=30'">
-                     <div class="img-container">
-                        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/banner-image/zulu_7bdQCsN.webp" alt="ZULU MATH BATCH" class="img-fluid">
-                    </div>
-                    <div class="batch-info">
-                        <h3 class="batch-name">ZULU MATH BATCH (CDS-2 2025)</h3>
-                        <p class="batch-id">Price: <b>FREE</b></p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <div class="col-lg-2">
+          <div
+            class="batch-card"
+            onclick="window.location.href='batchdac1.html?id=32'"
+          >
+            <div class="img-container">
+              <img
+                src="https://cds-journey-bucket.s3.amazonaws.com/media/banner-image/xray_WZzTn5o.webp"
+                alt="XRAY BATCH (NDA-2 2025)"
+                class="img-fluid"
+              />
+            </div>
+            <div class="batch-info">
+              <h3 class="batch-name">XRAY BATCH (NDA-2 2025)</h3>
+              <p class="batch-id">Price: <b>FREE</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div
+            class="batch-card"
+            onclick="window.location.href='batch6fb5.html?id=31'"
+          >
+            <div class="img-container">
+              <img
+                src="https://cds-journey-bucket.s3.amazonaws.com/media/banner-image/yankee_fmjjbui.webp"
+                alt="YANKEE BATCH (AFCAT-2 2025)"
+                class="img-fluid"
+              />
+            </div>
+            <div class="batch-info">
+              <h3 class="batch-name">YANKEE BATCH (AFCAT-2 2025)</h3>
+              <p class="batch-id">Price: <b>FREE</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div
+            class="batch-card"
+            onclick="window.location.href='batch8bcf.html?id=30'"
+          >
+            <div class="img-container">
+              <img
+                src="https://cds-journey-bucket.s3.amazonaws.com/media/banner-image/zulu_7bdQCsN.webp"
+                alt="ZULU MATH BATCH (CDS-2 2025)"
+                class="img-fluid"
+              />
+            </div>
+            <div class="batch-info">
+              <h3 class="batch-name">ZULU MATH BATCH (CDS-2 2025)</h3>
+              <p class="batch-id">Price: <b>FREE</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <section class="ssb-apps-section">
-        <h2 class="section-title">Best Apps for SSB Preparation</h2>
-        <div class="app-cards-container">
-            
-            <a href="https://play.google.com/store/apps/details?id=com.ssbcrackexams.learn&hl=en_IN" target="_blank" class="app-card">
-                <img src="https://play-lh.googleusercontent.com/p3tYl5-TME24d-V5Q35xLQ2s9_iI26m3x13s4i2a2O3x85b0Tf5md-aCrT-av_Tmjg" alt="Defence Exams Preparation App Icon">
-                <h3>Defence Exams Preparation App</h3>
-                <span class="playstore-link">View on Play Store</span>
-            </a>
+      <h2 class="section-title">Best Apps for SSB Preparation</h2>
+      <div class="app-cards-container">
+        <a
+          href="https://play.google.com/store/apps/details?id=com.ssbcrackexams.learn&hl=en_IN"
+          target="_blank"
+          class="app-card"
+        >
+          <img
+            src="https://play-lh.googleusercontent.com/4lotN0wZqH0jrnaqZTc2K1Pr5dy3DA3Gq2g6SUQbEBmbAIQ8Hj70406FL6owxwr3Hg=w240-h480-rw"
+            alt="Defence Exams Preparation App Icon"
+          />
+          <h3>Defence Exams Preparation App</h3>
+          <span class="playstore-link">View on Play Store</span>
+        </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN" target="_blank" class="app-card">
-                <img src="https://play-lh.googleusercontent.com/o5X1B02-J1O36ETP3Oa2C9sBKNKa7jTwH9n_VZZ8yA3STqmVWx-vDRRXG053czcK-A" alt="AI SSB: NDA & CDS Prep Icon">
-                <h3>AI SSB: NDA & CDS Prep</h3>
-                <span class="playstore-link">View on Play Store</span>
-            </a>
+        <a
+          href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN"
+          target="_blank"
+          class="app-card"
+        >
+          <img
+            src="https://play-lh.googleusercontent.com/cUnznhQHKFRHL1ZiaqcX3m2cVCwWT9rOYLBNy5W-fPYtUvxeqCPT2cQXjn89X0QpZA=w240-h480-rw"
+            alt="AI SSB: NDA & CDS Prep Icon"
+          />
+          <h3>AI SSB: NDA & CDS Prep</h3>
+          <span class="playstore-link">View on Play Store</span>
+        </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.paras.ssbprep" target="_blank" class="app-card">
-                <img src="https://play-lh.googleusercontent.com/lM5z-1Q4N-BS-Gv_5Y2yM0s-F_a2_mk33S8qH2eP-vo343-sM_aBlh5iL0VuYQ2s_g" alt="SSB Quest Icon">
-                <h3>SSB Quest</h3>
-                <span class="playstore-link">View on Play Store</span>
-            </a>
+        <a
+          href="https://play.google.com/store/apps/details?id=com.paras.ssbprep"
+          target="_blank"
+          class="app-card"
+        >
+          <img
+            src="https://play-lh.googleusercontent.com/SornP9VtFPIdTMbOjSTIxRYD_zeDQSrsW4tUQvL4yxOHXGavTezk8JI8wrtpqQwoeYAa=w480-h960-rw"
+            alt="SSB Quest Icon"
+          />
+          <h3>SSB Quest</h3>
+          <span class="playstore-link">View on Play Store</span>
+        </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.insightssb.insight" target="_blank" class="app-card">
-                 <img src="https://play-lh.googleusercontent.com/I2vA81S-4Tqr089-k5q3ZqYy3sC2T_qWjXX21kMRiS-rQcT8q_A3L_L7E5_f2_Qh2A" alt="INSIGHT SSB Icon">
-                <h3>INSIGHT SSB</h3>
-                <span class="playstore-link">View on Play Store</span>
-            </a>
-        </div>
+        <a
+          href="https://play.google.com/store/apps/details?id=com.insightssb.insight"
+          target="_blank"
+          class="app-card"
+        >
+          <img
+            src="https://play-lh.googleusercontent.com/9mOZEFKeyRr8zZFxg-IPVNlLuSs5HGrSgNjKFbM5N4-c0QToGix0eKKrejLqOpLNY9As=w480-h960-rw"
+            alt="INSIGHT SSB Icon"
+          />
+          <h3>INSIGHT SSB</h3>
+          <span class="playstore-link">View on Play Store</span>
+        </a>
+      </div>
     </section>
 
-    <script>
-        // Kept the function for the clickable batch cards
-        function openUrl(url) {
-            window.location.href = url;
-        }
-    </script>
-</body>
+    <div id="telegramPopup" class="popup-overlay">
+      <div class="popup-content">
+        <span
+          class="close-btn"
+          onclick="document.getElementById('telegramPopup').style.display='none'"
+          >×</span
+        >
+        <h2>Join Our Communities</h2>
+        <div class="popup-buttons">
+          <a
+            href="https://whatsapp.com/channel/0029VbB5HpJKGGGC0k5VaZ0e"
+            target="_blank"
+            class="join-btn"
+            >Join Whatsapp Channel</a
+          >
+          <a
+            href="https://t.me/yourtelegramchannel"
+            target="_blank"
+            class="join-btn"
+            >Join Telegram Channel</a
+          >
+          <a
+            href="https://telegram.me/mradarshr"
+            target="_blank"
+            class="join-btn developer"
+            >My Developer</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
